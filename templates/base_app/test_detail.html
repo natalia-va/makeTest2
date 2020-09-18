@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>My Test</h1>
+    {% for question in questions %}
+        <h2>
+            {{ question.number }}
+        </h2>
+        <p>
+            {{question.body}}
+        </p>
+        <p>
+            {{question.note}}
+        </p>
+
+    {% endfor %}
+{% endblock %}
+

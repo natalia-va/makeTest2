@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}My Tests{% endblock %}
+{% block content %}
+    <h1>My Tests</h1>
+    {% for test in tests %}
+        <h2>
+            <a href="/test/{{ test.pk }}">{{ test.title }}</a>
+        </h2>
+        <p class="date">
+            Published {{ test.created }} by {{ test.author }}
+        </p>
+    {% endfor %}
+
+    <form action="/creating/" target="_blank">
+        <button>Создать новый тест</button>
+    </form>
+{% endblock %}
