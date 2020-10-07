@@ -9,7 +9,7 @@ class TestAdmin(admin.ModelAdmin):
 admin.site.register(Test, TestAdmin)
 
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('test', 'number')
+    list_display = ['test']
     list_filter = ['test']
     search_fields = ['test']
 

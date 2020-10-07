@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block title %}My Tests{% endblock %}
-{% block content %}
+
+{% block container %}
     <h1>My Tests</h1>
     {% for test in tests %}
+
         <h2>
             <a href="/test/{{ test.pk }}">{{ test.title }}</a>
         </h2>
@@ -11,7 +13,7 @@
         </p>
     {% endfor %}
 
-    <form action="/creating/" target="_blank">
+    <form action="/creating/" >
         <button>Создать новый тест</button>
     </form>
 {% endblock %}
