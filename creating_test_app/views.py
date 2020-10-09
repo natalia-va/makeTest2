@@ -14,11 +14,11 @@ def create_question_model_form(request):
         formset = QuestionModelFormset(request.POST)
         if testform.is_valid() and formset.is_valid():
             test = testform.save()
-
+            test.author = request.user
+            test.save()
             for form in formset:
                 question = form.save(commit=False)
                 question.test = test
-                question.author = User
                 question.save()
             return redirect('base_app:test_list')
 

@@ -2,18 +2,29 @@
 {% block title %}My Tests{% endblock %}
 
 {% block container %}
-    <h1>My Tests</h1>
+    <h1>Мои тесты</h1>
+    {% if tests %}
     {% for test in tests %}
 
-        <h2>
-            <a href="/test/{{ test.pk }}">{{ test.title }}</a>
-        </h2>
-        <p class="date">
-            Published {{ test.created }} by {{ test.author }}
-        </p>
-    {% endfor %}
+            <form action="/delete/{{ test.pk }}" >
+                <button type="submit" class="close" >&times;</button >
+                <!--<button class="btn btn-outline-danger btn-sm" type="submit">Удалить тест</button>-->
+            </form>
+            <h2>
+                <a href="/test/{{ test.pk }}">{{ test.title }}</a>
+            </h2>
 
-    <form action="/creating/" >
-        <button>Создать новый тест</button>
+            <p class="date">
+                Опубликован {{ test.created}}
+            </p>
+            <div class="">
+
+
+            </div>
+    {% endfor %}
+    {% endif %}
+
+    <form action="/creating/" class="spacer" >
+        <button class="btn btn-primary " type="submit">Создать новый тест</button>
     </form>
 {% endblock %}

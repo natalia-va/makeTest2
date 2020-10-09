@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+from django.urls import reverse_lazy
 
 from pathlib import Path
 import os
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'base_app',
     'creating_test_app',
     'crispy_forms',
+    'auth_app',
 
 ]
 
@@ -129,3 +131,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+
+LOGIN_REDIRECT_URL = reverse_lazy('base_app:test_list')
+LOGIN_URL = reverse_lazy('login')
+LOGOUT_URL = reverse_lazy('logout')

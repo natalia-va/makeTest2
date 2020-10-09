@@ -2,15 +2,41 @@
 {% block container %}
     <h1>My Test</h1>
     {% for question in questions %}
-        <h2>
-            {{ question.number }}
-        </h2>
-        <p>
-            {{question.body}}
-        </p>
-        <p>
-            {{question.note}}
-        </p>
+        <div class="form-row ">
+                <div class="col-2">
+                    <h2>№ {{forloop.counter}}</h2>
+                </div>
+        </div>
+        <div class="form-row ">
+            <div class="col-2">
+                <label>Текст Вопроса</label>
+            </div>
+            <div class="col-4">
+                <div class="input-group">
+                    {{question.body}}
+                </div>
+            </div>
+        </div>
+        <div class="form-row ">
+            <div class="col-2">
+                <label>Заметки к вопросу</label>
+            </div>
+            <div class="col-4">
+                <div class="input-group">
+                    {{question.note}}
+                </div>
+            </div>
+        </div>
+        <div class="form-row ">
+            <div class="col-2">
+                <label>Ответ</label>
+            </div>
+            <div class="col-4">
+                <div class="input-group">
+                    {{question.answer}}
+                </div>
+            </div>
+        </div>
 
     {% endfor %}
 {% endblock %}

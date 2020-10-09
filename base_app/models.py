@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Test(models.Model):
     title = models.CharField(max_length=250)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, null = True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     created = models.DateTimeField(auto_now_add=True)
     link = models.CharField(max_length=250)
 
