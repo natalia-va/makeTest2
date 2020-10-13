@@ -14,9 +14,9 @@ def check_auth(request):
 def test_list(request):
     tests = Test.objects.filter(author=request.user)
     if (tests):
-        return render(request, 'base_app/test_list.html', {'tests': tests})
+        return render(request, 'base_app/index.html', {'tests': tests})
     else:
-        return render(request, 'base_app/test_list.html')
+        return render(request, 'base_app/index.html')
 
 
 def test_detail(request, pk):

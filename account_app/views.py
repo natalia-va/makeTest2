@@ -34,4 +34,4 @@ def reg_auth(request):
             else:
                 # Return an 'invalid login' error message.
                 ...
-    return render(request, 'auth_app/registration/reg_auth.html')
+    return render(request, 'account_app/registration/reg_auth.html')
