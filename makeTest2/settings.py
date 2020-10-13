@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'base_app',
     'creating_test_app',
     'crispy_forms',
-    'auth_app',
+    'account_app',
 
 ]
 
@@ -134,5 +134,5 @@ STATICFILES_DIRS = (
 
 
 LOGIN_REDIRECT_URL = reverse_lazy('base_app:test_list')
-LOGIN_URL = reverse_lazy('login')
+LOGIN_URL = reverse_lazy('base_app:account:')
 LOGOUT_URL = reverse_lazy('logout')

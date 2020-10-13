@@ -4,6 +4,13 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponseNotFound
 
 
+
+def check_auth(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect('my-tests/')
+    else:
+        return HttpResponseRedirect('account/')
+
 def test_list(request):
     tests = Test.objects.filter(author=request.user)
     if (tests):
@@ -18,9 +25,7 @@ def test_detail(request, pk):
     return render(request, 'base_app/test_detail.html', {'questions': questions})
 
 def delete_test(request, pk):
-    print(111111)
     try:
-        print(22222222)
         Test.objects.get(id=pk).delete()
         return HttpResponseRedirect("/")
     except Test.DoesNotExist:

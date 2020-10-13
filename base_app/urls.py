@@ -5,10 +5,11 @@ app_name = 'base_app'
 
 urlpatterns = [
     # post views
+    path('', views.check_auth, name='first_check_auth'),
     path('test/<int:pk>/', views.test_detail, name='test_detail'),
-    path('', views.test_list, name='test_list'),
+    path('my-tests/', views.test_list, name='test_list'),
     path('creating/', include('creating_test_app.urls')),
     path('delete/<int:pk>/', views.delete_test, name='delete_test'),
-    path('auth/', include('auth_app.urls', namespace='auth')),
+    path('account/', include('account_app.urls', namespace='account')),
 
 ]

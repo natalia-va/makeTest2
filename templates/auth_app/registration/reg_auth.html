@@ -1,0 +1,84 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="/static/static_files/css/stile_reg.css" rel="stylesheet">
+
+</head>
+<body class="backg">
+    <div class="container">
+        <div class="row padd">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="tab" role="tabpanel">
+             <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#Section1" aria-controls="home" role="tab" data-toggle="tab">Вход</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab">Регистрация</a>
+                        </li>
+                    </ul>
+             <!-- Tab panes -->
+                    <div class="tab-content tabs">
+                        <div role="tabpanel" class="tab-pane fade in active" id="Section1">
+                            <form method="post" class="form-horizontal" id = "authForm">
+                                {% csrf_token %}
+
+                                <div class="form-group">
+                                    <label >Имя пользователя</label>
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <label >Пароль</label>
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+                                <div class="form-group">
+                                    <div class="main-checkbox">
+                                        <input value="None" id="checkbox1" name="check" type="checkbox">
+                                        <label for="checkbox1"></label>
+                                    </div>
+                                    <span class="text">Keep me Signed in</span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-default" name="authButton">Войти</button>
+                                </div>
+                                <div class="form-group forgot-pass">
+                                    <button type="submit" class="btn btn-default">Забыли пароль?</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="Section2">
+                            <form method="post" class="form-horizontal" id="regForm">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label>Имя пользователя</label>
+                                    <input type="text" class="form-control" name="username" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputFName">Имя</label>
+                                    <input type="text" class="form-control" name="first_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputLName">Фамилия</label>
+                                    <input type="text" class="form-control" name="last_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputEmail">E-mail адрес</label>
+                                    <input type="email" class="form-control" name="email" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputPasswordReg">Пароль</label>
+                                    <input type="password" class="form-control" name="password" autocomplete="new-password" >
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-default" name="regButton">Зарегистрироваться</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.col-md-offset-3 col-md-6 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
