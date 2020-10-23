@@ -1,2 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
+<body>
+    {% if request.user.is_authenticated %}
+        <script language="JavaScript" ENGINE="text/javascript">
+            location="my-tests/"
+        </script>
+    {% else %}
+        <script language="JavaScript" ENGINE="text/javascript">
+            location="account/"
+        </script>
+
+    {% endif %}
+</body>
+</html>
