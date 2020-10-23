@@ -5,6 +5,9 @@ from django.http import HttpResponseRedirect, HttpResponseNotFound
 
 
 
+def check_auth1(request):
+    return render(request, 'index.html')
+
 def check_auth(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('my-tests/')
@@ -14,9 +17,9 @@ def check_auth(request):
 def test_list(request):
     tests = Test.objects.filter(author=request.user)
     if (tests):
-        return render(request, 'base_app/index.html', {'tests': tests})
+        return render(request, 'base_app/tests_list.html', {'tests': tests})
     else:
-        return render(request, 'base_app/index.html')
+        return render(request, 'base_app/tests_list.html')
 
 
 def test_detail(request, pk):
