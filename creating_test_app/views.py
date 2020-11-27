@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from base_app.models import Question, Test
 from .forms import  QuestionModelFormset, TestModelForm
-from django.contrib.auth.models import User
 
 
 def create_question_model_form(request):

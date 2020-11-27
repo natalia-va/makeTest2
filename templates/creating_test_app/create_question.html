@@ -2,7 +2,7 @@
 
 {% block container %}
 
-<h3>Создание теста</h3>
+<h1>Создание теста</h1>
 <form class="form-horizontal" method="POST" action="">
     {% csrf_token %}
     {{ formset.management_form }}
@@ -39,7 +39,7 @@
                     <label>{{form.body.label}}</label>
                 </div>
                 <div class="col-4">
-                    <div class="input-group">
+                    <div class="input-group body-question">
                         {{form.body}}
                     </div>
                 </div>

@@ -3,29 +3,34 @@
 <html>
 <head>
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    {% block custom_css %}
+    <link href="/static/static_files/css/stile_main.css" rel="stylesheet">
 
+    {% block custom_css %}
     {% endblock %}
     <title>Django Library App</title>
 </head>
-
-    <body>
-        <div id="header" class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-
-            <a class="navbar-brand" href="#">MakeTest2</a>
-            <span class="nav-item">
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="{%  url "base_app:test_list" %}">MakeTest2</a>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
                 {% if request.user.is_authenticated %}
-                    Привет, {{ request.user.first_name }}!
-                    <a href="{% url "base_app:account:logout" %}">Logout</a>
+                    <li class="nav-item dropdown form-inline my-2 my-md-0">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Привет, {{ request.user.first_name }}! </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown03">
+                          <a class="dropdown-item" href="{% url "base_app:account:logout" %}">Logout </a>
+                        </div>
+                    </li>
                 {% endif %}
-            </span>
+            </ul>
         </div>
+    </nav>
 
     <div class="container">
         <div class="row spacer"></div>

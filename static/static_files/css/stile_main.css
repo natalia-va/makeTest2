@@ -1,0 +1,19 @@
+h1{
+    margin-bottom: 1rem;
+    margin-top: .8rem;
+}
+.form-row{
+    margin-bottom: 0.3rem;
+}
+.row{
+    margin-bottom: 0.3rem;
+}
+.input-body{
+    height: 100px;
+}
+.body-question {
+    height: 176px; /* Высота рисунка */
+}
+.q_form {
+    margin-bottom: 1.3rem;
+}

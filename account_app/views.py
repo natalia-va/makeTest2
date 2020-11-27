@@ -1,17 +1,19 @@
 from django.shortcuts import render
-from base_app.models import Test
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import UserRegistrationForm
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponseNotFound
 
+
+
+def logout_user(request):
+    logout(request)
+    return render(request, 'account_app/registration/logged_out.html')
 
 def reg_auth(request):
     if request.method == 'POST':
         if "regButton" in request.POST:
             user_form = UserRegistrationForm(request.POST)
             if user_form.is_valid():
-                print(34324)
                 # Create a new user object but avoid saving it yet
                 new_user = user_form.save(commit=False)
                 # Set the chosen password
@@ -23,7 +25,6 @@ def reg_auth(request):
 
             user = authenticate(username=request.POST['username'], password=request.POST['password'])
             if user is not None:
-
                 if user.is_active:
                     login(request, user)
                     # Redirect to a success page.
